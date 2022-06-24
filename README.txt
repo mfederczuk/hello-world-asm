@@ -1,1 +1,1 @@
-Just a simple Hello World program written in Assembly in GAS Syntax.
+A simple Hello World program for Linux-based operating systems written with x86 Assembly in the AT&T / GAS syntax.
