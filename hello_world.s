@@ -1,5 +1,5 @@
 # A Hello World program in Assembly.
-# Copyright (C) 2020  Michael Federczuk
+# Copyright (C) 2022  Michael Federczuk
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -23,11 +23,11 @@ hello_world_msg:
 
 .text
 hello_world:
-	movl $4, %eax # syscall write
-	movl $1, %ebx # arg fd
-	movl $hello_world_msg, %ecx # arg buf
-	movl $hello_world_msg_size, %edx # arg count
-	int $0x80
+	movl $1, %eax # syscall write
+	movl $1, %edi # arg fd
+	movq $hello_world_msg, %rsi # arg buf
+	movq $hello_world_msg_size, %rdx # arg count
+	syscall
 	ret
 
 main:
@@ -37,6 +37,6 @@ main:
 
 _start:
 	call main
-	movl %eax, %ebx # arg status
-	movl $1, %eax # syscall exit
-	int $0x80
+	movl %eax, %edi # arg status
+	movl $60, %eax # syscall exit
+	syscall
