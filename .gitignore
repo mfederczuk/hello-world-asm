@@ -1,2 +1,2 @@
-*.o
-hello_world
+/build
+/hello_world
