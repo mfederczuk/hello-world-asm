@@ -23,10 +23,10 @@ hello_world_msg:
 
 .text
 hello_world:
-	movl $1, %eax # syscall write
-	movl $1, %edi # arg fd
-	movq $hello_world_msg, %rsi # arg buf
-	movq $hello_world_msg_size, %rdx # arg count
+	movl $1, %eax # syscall: write
+	movl $1, %edi # arg: fd
+	movq $hello_world_msg, %rsi # arg: buf
+	movq $hello_world_msg_size, %rdx # arg: count
 	syscall
 	ret
 
@@ -37,6 +37,6 @@ main:
 
 _start:
 	call main
-	movl %eax, %edi # arg status
-	movl $60, %eax # syscall exit
+	movl %eax, %edi # arg: status
+	movl $60, %eax # syscall: exit
 	syscall
